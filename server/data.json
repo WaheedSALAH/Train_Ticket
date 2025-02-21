@@ -1,0 +1,277 @@
+{
+  "users": [
+    {
+      "id": "5eed",
+      "username": "admin",
+      "email": "wdarwesh365@gmail.com",
+      "password": "http://localhost:3005/users",
+      "confirmPassword": "http://localhost:3005/users",
+      "nationalId": "11223344556677",
+      "checkBox": true
+    },
+    {
+      "id": "b489",
+      "username": "waheed eidarous",
+      "email": "git@gmail.com",
+      "password": "git@gmail.com",
+      "confirmPassword": "git@gmail.com",
+      "nationalId": "11223344556673",
+      "checkBox": true
+    },
+    {
+      "id": "161f",
+      "username": "adidas",
+      "email": "ITI@GMAILL.com",
+      "password": "ITI@GMAILL.com",
+      "confirmPassword": "ITI@GMAILL.com",
+      "nationalId": "11223344556674",
+      "checkBox": true
+    },
+    {
+      "id": "3a07",
+      "username": "waheed eidarous",
+      "email": "wsas@gmail.com",
+      "password": "wsas@gmail.com",
+      "confirmPassword": "wsas@gmail.com",
+      "nationalId": "11223344556670",
+      "checkBox": true
+    },
+    {
+      "id": "4017",
+      "username": "adidas",
+      "email": "ITI@GMAIxLL.com",
+      "password": "ITI@GMAILL.com",
+      "confirmPassword": "ITI@GMAILL.com",
+      "nationalId": "11223344556641",
+      "checkBox": true
+    }
+  ],
+  "trains": [
+    {
+      "id": "1",
+      "name": "Cairo Express",
+      "from": "Cairo",
+      "to": "Alexandria",
+      "departureTime": "08:00",
+      "arrivalTime": "11:00",
+      "price": 150,
+      "seatsAvailable": 100,
+      "bookedSeats": []
+    },
+    {
+      "id": "2",
+      "name": "Delta Rapid",
+      "from": "Alexandria",
+      "to": "Mansoura",
+      "departureTime": "10:30",
+      "arrivalTime": "13:00",
+      "price": 120,
+      "seatsAvailable": 71,
+      "bookedSeats": []
+    },
+    {
+      "id": "3",
+      "name": "Nile Express",
+      "from": "Cairo",
+      "to": "Aswan",
+      "departureTime": "22:00",
+      "arrivalTime": "06:00",
+      "price": 350,
+      "seatsAvailable": 60,
+      "bookedSeats": []
+    },
+    {
+      "id": "4",
+      "name": "Upper Egypt Special",
+      "from": "Cairo",
+      "to": "Sohag",
+      "departureTime": "17:00",
+      "arrivalTime": "00:30",
+      "price": 250,
+      "seatsAvailable": 75,
+      "bookedSeats": []
+    },
+    {
+      "id": "5",
+      "name": "Delta Night",
+      "from": "Mansoura",
+      "to": "Alexandria",
+      "departureTime": "20:00",
+      "arrivalTime": "22:30",
+      "price": 110,
+      "seatsAvailable": 85,
+      "bookedSeats": [
+        36,
+        35,
+        34,
+        78,
+        77
+      ]
+    },
+    {
+      "id": "847",
+      "name": "Sphinx Express",
+      "img": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png",
+      "from": "Giza",
+      "to": "Luxor",
+      "departureTime": "21:00",
+      "arrivalTime": "05:00",
+      "price": 300,
+      "seatsAvailable": 21,
+      "bookedSeats": [
+        2,
+        3,
+        7,
+        10,
+        30,
+        24,
+        26,
+        39,
+        8,
+        33,
+        32,
+        36,
+        17,
+        19,
+        11,
+        4,
+        12,
+        15
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Sphinx Express",
+      "img": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png",
+      "from": "Giza",
+      "to": "Luxor",
+      "departureTime": "21:00",
+      "arrivalTime": "05:00",
+      "price": 300,
+      "seatsAvailable": 28,
+      "bookedSeats": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        10,
+        49,
+        9,
+        50,
+        48,
+        47,
+        33,
+        34,
+        35,
+        8,
+        22,
+        24,
+        37,
+        27,
+        42,
+        43,
+        39
+      ]
+    },
+    {
+      "id": "88",
+      "name": "Sphinx Express",
+      "img": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png",
+      "from": "Giza",
+      "to": "Luxor",
+      "departureTime": "21:00",
+      "arrivalTime": "05:00",
+      "price": 300,
+      "seatsAvailable": 35,
+      "bookedSeats": []
+    },
+    {
+      "id": "99",
+      "name": "Red Sea Line",
+      "from": "Suez",
+      "to": "Cairo",
+      "departureTime": "07:30",
+      "arrivalTime": "09:30",
+      "price": 100,
+      "seatsAvailable": 120,
+      "bookedSeats": []
+    },
+    {
+      "id": "8",
+      "name": "Valley Express",
+      "from": "Asyut",
+      "to": "Cairo",
+      "departureTime": "14:00",
+      "arrivalTime": "20:00",
+      "price": 280,
+      "seatsAvailable": 65,
+      "bookedSeats": []
+    },
+    {
+      "id": "9",
+      "name": "Mediterranean Express",
+      "from": "Alexandria",
+      "to": "Port Said",
+      "departureTime": "09:00",
+      "arrivalTime": "12:00",
+      "price": 160,
+      "seatsAvailable": 70,
+      "bookedSeats": []
+    },
+    {
+      "id": "10",
+      "name": "Golden Arrow",
+      "from": "Tanta",
+      "to": "Cairo",
+      "departureTime": "16:00",
+      "arrivalTime": "18:00",
+      "price": 90,
+      "seatsAvailable": 110,
+      "bookedSeats": []
+    }
+  ],
+  "tickets": [
+    {
+      "id": "1740007597081",
+      "trainId": "6",
+      "trainName": "Sphinx Express",
+      "from": "Giza",
+      "to": "Luxor",
+      "selectedSeats": [
+        33,
+        34,
+        35,
+        8,
+        22,
+        24
+      ],
+      "totalPrice": 900,
+      "bookingDate": "2025-02-19T23:26:37.081Z",
+      "userId": "4017",
+      "username": "adidas",
+      "email": "ITI@GMAIxLL.com",
+      "nationalId": "11223344556641"
+    },
+    {
+      "id": "1740008395408",
+      "trainId": "6",
+      "trainName": "Sphinx Express",
+      "from": "Giza",
+      "to": "Luxor",
+      "selectedSeats": [
+        27,
+        42,
+        43,
+        39
+      ],
+      "totalPrice": 300,
+      "bookingDate": "2025-02-19T23:39:55.408Z",
+      "userId": "b489",
+      "username": "waheed eidarous",
+      "email": "git@gmail.com",
+      "nationalId": "11223344556673",
+      "imgUrl": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png"
+    }
+  ]
+}
