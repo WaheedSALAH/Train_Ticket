@@ -66,27 +66,32 @@ export function TicketDetails() {
 
   // Handle Booking Confirmation
   const handleConfirmBooking = async () => {
+    if (user.role === "admin") {
+      setError("Sorry, you act as admin");
+      return;
+    }
+  
     if (!user) {
       setError("Please log in before booking.");
       return;
     }
-
+  
     if (selectedSeats.length !== numSeats) {
       setError("Please select the exact number of seats.");
       return;
     }
-
+  
     if (booked) {
       setError("You have already booked this ticket.");
       return;
     }
-
+  
     setLoading(true);
     setError("");
     setSuccess("");
-
+  
     const ticketData = {
-      id: Date.now().toString(), // Generate unique ticket ID
+      id: Date.now().toString(),
       trainId: train.id,
       trainName: train.name,
       from: train.from,
@@ -98,59 +103,37 @@ export function TicketDetails() {
       username: user.username,
       email: user.email,
       nationalId: user.nationalId,
-      imgUrl :train.img
+      imgUrl: train.img,
     };
-
-    const ticketinfo = async () => {
-      try {
-        const response = await axios.get("http://localhost:3005/tickets"); // Fetch all tickets
-        const tickets = response.data; // Store ticket data
-    
-        let found = false;
-    
-        for (let i of tickets) {
-          if (i.email === userinfo.email) {
-            found = true;
-            console.log("Ticket Found for user:", userinfo.email);
-    
-            // Ensure no duplicate seats are added
-            let updatedSeats = [...new Set([...i.selectedSeats, ...ticketData.selectedSeats])];
-    
-            await axios.put(`http://localhost:3005/tickets/${i.id}`, {
-              ...i, // Keep other ticket details
-              selectedSeats: updatedSeats, // Update seats only
-            });
-    
-            break; // Exit loop since we updated the ticket
-          }
-        }
-    
-        if (!found) {
-          console.log("No existing ticket found. Creating new ticket...");
-          await axios.post("http://localhost:3005/tickets", ticketData);
-        }
-      } catch (error) {
-        console.error("Error updating ticket details:", error);
-      }
-    };
-    
-    ticketinfo();
-    
-
-    let userinfo = JSON.parse(localStorage.getItem('user'))
-
-
+  
     try {
-
-
-
+      // Fetch all tickets to check if the user already has one
+      const response = await axios.get("http://localhost:3005/tickets");
+      const tickets = response.data;
+  
+      let existingTicket = tickets.find((t) => t.email === user.email);
+  
+      if (existingTicket) {
+        // Update existing ticket by adding new seats
+        let updatedSeats = [...new Set([...existingTicket.selectedSeats, ...ticketData.selectedSeats])];
+  
+        await axios.put(`http://localhost:3005/tickets/${existingTicket.id}`, {
+          ...existingTicket,
+          selectedSeats: updatedSeats,
+        });
+      } else {
+        // Create new ticket if the user has no existing one
+        await axios.post("http://localhost:3005/tickets", ticketData);
+      }
+  
+      // Update the train with booked seats
       await axios.patch(`http://localhost:3005/trains/${id}`, {
         seatsAvailable: train.seatsAvailable - numSeats,
-        bookedSeats: [...train.bookedSeats, ...selectedSeats] // Store booked seats
+        bookedSeats: [...train.bookedSeats, ...selectedSeats],
       });
-
+  
       await fetchTrainData(); // Refresh train data after booking
-
+  
       setSuccess(`Booking successful! Seats: ${selectedSeats.join(", ")}`);
       setSelectedSeats([]);
       setBooked(true);
@@ -161,7 +144,7 @@ export function TicketDetails() {
       setLoading(false);
     }
   };
-
+  
   // Generate seat layout (4 seats per row)
   const totalSeats = train.seatsAvailable + train.bookedSeats.length; // Total seats originally
   const availableSeats = Array.from({ length: totalSeats }, (_, i) => i + 1);
@@ -174,8 +157,12 @@ export function TicketDetails() {
     <Container className="mt-5">
       <Card className="shadow-lg p-4">
         <Card.Body>
+          
           <h2 className="text-center mb-4">🚆 {train.name} - Ticket Booking</h2>
-          <div><img src={train.img} alt="" /></div>
+          
+          <div className="text-center mb-4">
+            <img src={train.img} alt={train.name} className="img-fluid rounded-3" />
+          </div> 
           <p><strong>Route:</strong> {train.from} → {train.to}</p>
           <p><strong>Departure:</strong> {train.departureTime}</p>
           <p><strong>Price per Seat:</strong> {train.price} EGP</p>

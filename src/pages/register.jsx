@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import FormText from 'react-bootstrap/esm/FormText';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 
 export function Register() {
   const [formData, setFormData] = useState({
@@ -223,6 +223,11 @@ export function Register() {
               Register
             </Button>
               </div>
+                <div className='text-center mt-4'> 
+
+              <FormText>already have account ? <Link to="/login">Login</Link></FormText>
+                </div>
+
           </Form>
         </div>
       </Row>

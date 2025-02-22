@@ -28,6 +28,12 @@ export function Login() {
 
   const handleEmail = () => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (formData.email.trim() === "") {
+      setEmailError("Can't be empty");
+      return;
+    }
+
     if (!emailRegex.test(formData.email)) {
       setEmailError("Please enter a valid email address");
     } else {
@@ -63,10 +69,20 @@ export function Login() {
 
         if (user) {
           // ✅ Store user data in localStorage
-          localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify({ id: user.id, role: user.role,nationalId:user.nationalId ,email:user.email,username:user.username }));
 
           alert("Login successful");
-          navigate("/"); // Redirect to homepage
+
+          navigate("/"); 
+
+
+          if (user.role === "admin") {
+            // localStorage.setItem("isAdmin", true);
+            navigate("/admin");
+          // } else {
+          //   localStorage.setItem("isAdmin", false);
+          //   navigate("/");
+          }
         } else {
           setError("Invalid email or password");
         }
@@ -115,7 +131,11 @@ export function Login() {
             <Button variant="primary" type="submit" className="w-100">
               Login
             </Button>
-            <FormText>already have account ? <Link to="/register">Register</Link></FormText>
+            <div className="text-center mt-4">
+              <FormText className="">
+                Don't have an account? <Link to="/register">Register</Link>
+              </FormText>
+            </div>
           </Form>
         </div>
       </Row>

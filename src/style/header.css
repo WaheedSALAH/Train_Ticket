@@ -1,0 +1,70 @@
+/* Header.css */
+
+/* Navbar Styles */
+.navbar-custom {
+    background-color: #2f2f2f; /* Dark gray background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-bottom: 2px solid #007bff; /* Light blue border for separation */
+  }
+  
+  .navbar-custom .navbar-brand {
+    color: #ffffff; /* White color for brand */
+    font-size: 2rem; /* Larger brand text */
+    font-weight: 700; /* Bold brand text */
+    letter-spacing: 2px; /* Spacing between letters */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .navbar-custom .navbar-brand:hover {
+    color: #00aaff; /* Light blue hover effect for the brand */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+  
+  /* Navbar Links */
+  .nav-link {
+    color: #f0f0f0 !important; /* Light text for links */
+    font-size: 1.1rem; /* Slightly larger font for better readability */
+    font-weight: 500;
+    padding: 10px 20px; /* Padding around the links for better spacing */
+    border-radius: 30px; /* Rounded corners for the links */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transitions */
+  }
+  
+  .nav-link:hover {
+    color: #00aaff !important; /* Blue hover effect for the links */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  /* Active NavLink */
+  .nav-link.active {
+    color: #007bff !important; /* Blue color for active links */
+    font-weight: 600; /* Bold weight for active link */
+  }
+  
+  /* Mobile View - Navbar Collapse */
+  .navbar-collapse {
+    justify-content: flex-end; /* Align the menu items to the right */
+  }
+  
+  .navbar-toggle {
+    border: 1px solid #00aaff; /* Toggler button with blue border */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #00aaff; /* Toggler icon in blue */
+  }
+  
+  /* NavLink Styles for Spacing */
+  .navbar-nav .nav-link {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  .navbar-nav .nav-link:first-child {
+    margin-left: 0;
+  }
+  
+  .navbar-nav .nav-link:last-child {
+    margin-right: 0;
+  }
+  

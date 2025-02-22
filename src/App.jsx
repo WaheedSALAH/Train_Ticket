@@ -24,6 +24,9 @@ import { Register } from './pages/register';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { TicketDetails } from './pages/TicketDetails';
 import MyTicket from './pages/myTicket';
+import {AdminPanel} from './pages/admin';
+import { AddTrain } from './pages/AddTrain';
+import { EditTrain } from './pages/EditTrain';
 
 function App() {
   return (
@@ -31,7 +34,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<AdminPanel />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/AddTrain" element={<AddTrain />} />
+        <Route path="/EditTrain/:id" element={<EditTrain />} />
         <Route path="/ticket-details/:id" element={<TicketDetails />} /> {/* 👈 Route with ID */}
         <Route path="/ticket-details/" element={<MyTicket />} /> {/* 👈 Route with ID */}
         

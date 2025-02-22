@@ -1,6 +1,12 @@
 {
   "users": [
     {
+      "id": 1,
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
       "id": "5eed",
       "username": "admin",
       "email": "wdarwesh365@gmail.com",
@@ -100,13 +106,7 @@
       "arrivalTime": "22:30",
       "price": 110,
       "seatsAvailable": 85,
-      "bookedSeats": [
-        36,
-        35,
-        34,
-        78,
-        77
-      ]
+      "bookedSeats": []
     },
     {
       "id": "847",
@@ -220,14 +220,14 @@
       "bookedSeats": []
     },
     {
-      "id": "10",
-      "name": "Golden Arrow",
-      "from": "Tanta",
-      "to": "Cairo",
-      "departureTime": "16:00",
-      "arrivalTime": "18:00",
-      "price": 90,
-      "seatsAvailable": 110,
+      "id": "8ff8",
+      "name": "iti_zag",
+      "from": "zero",
+      "to": "hero",
+      "departureTime": "19:05",
+      "arrivalTime": "20:01",
+      "price": 4,
+      "seatsAvailable": 275,
       "bookedSeats": []
     }
   ],
