@@ -1,53 +1,3 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
-
-
-// export default function MyTicket() {
-          
-// const [state,setstate] = useState(null)
-
-// useEffect(() => {
-//     const ticketinfo = async () => {
-//         try {
-//       const ticketinfo = await axios.get("http://localhost:3005/tickets");
-//     //   console.log(ticketinfo.data)
-
-//       for(let i of ticketinfo.data)
-//       {
-//         // console.log(i.email)
-//         if (i.email == userinfo.email){
-//             // console.log(i)
-//             setstate(i)
-//             break;
-//         }
-//     }
-
-//         } catch (error) {
-//           console.error("Error fetching updated train details:", error);
-//         }
-//       };
-//       ticketinfo()
-//     }, [userinfo]); 
-
-//     console.log(state)
-
-
-
-//       let userinfo = JSON.parse(localStorage.getItem('user'))
-//     //   console.log(userinfo.email)
-//     return (
-//         <div>
-//           <h2>🎟️ My Ticket</h2>
-//           <p><strong>Train:</strong> {state.trainName}</p>
-//           <p><strong>Route:</strong> {state.from} → {state.to}</p>
-//           <p><strong>Seats:</strong> {state.selectedSeats.join(", ")}</p>
-//           <p><strong>Total Price:</strong> {state.totalPrice} EGP</p>
-//         </div>
-//       );
-// }
-
-
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Card, Spinner, Alert } from "react-bootstrap";
@@ -71,12 +21,7 @@ export default function MyTicket() {
       try {
         const response = await axios.get("http://localhost:3005/tickets");
         const userTickets = response.data.filter(i => i.email === userinfo.email);
-
-        if (userTickets.length === 0) {
-          setError("No tickets found.");
-        } else {
-          setTickets(userTickets);
-        }
+        setTickets(userTickets);
       } catch (error) {
         console.error("Error fetching tickets:", error);
         setError("Failed to fetch tickets.");
@@ -93,24 +38,36 @@ export default function MyTicket() {
   return (
     <div>
         <Header/>
-    <Container className="mt-5">
-      <h2 className="text-center mb-4">🎟️ My Tickets</h2>
+        <Container className="mt-5">
+          <div className="text-center m-4">
+             <h2 className="text-center mb-4 text-dark fw-bold shadow d-inline bg-danger rounded px-2">My Tickets</h2>
+          </div>
 
       {error && <Alert variant="danger" className="text-center">{error}</Alert>}
 
-      {tickets.map((i) => (
-        <Card key={i.id} className="mb-3 shadow">
-          <Card.Body>
-            <div><img src={i.imgUrl} alt="" /></div>
-            <h5 className="text-center">{i.trainName}</h5>
-            <p><strong>Route:</strong> {i.from} → {i.to}</p>
-            <p><strong>Departure:</strong> {new Date(i.bookingDate).toLocaleString()}</p>
-            <p><strong>Seats:</strong> {i.selectedSeats.join(", ")}</p>
-            <p><strong>Total Price:</strong> {i.totalPrice} EGP</p>
-          </Card.Body>
-        </Card>
-      ))}
+      {tickets.length === 0 ? (
+        <Alert variant="warning" className="text-center">You have no booked tickets.</Alert>
+      ) : (
+        tickets.map((i) => (
+          <Card key={i.id} className="mb-4 shadow-lg border-0 rounded-3">
+            <Card.Body className="p-4 d-flex flex-column align-items-center text-center">
+              <img 
+                src={i.imgUrl} 
+                alt={i.trainName} 
+                style={{ width: "280px", height: "170px", objectFit: "cover" }} 
+                className="rounded shadow-sm mb-2"
+              />
+              <h4 className="text-dark fw-bold">{i.trainName}</h4>
+              <p className="text-muted"><strong>Route:</strong> {i.from} → {i.to}</p>
+              <p><strong>Departure:</strong> {new Date(i.bookingDate).toLocaleString()}</p>
+              <p><strong>Seats:</strong> {i.selectedSeats.join(", ")}</p>
+              <p className="text-success fw-bold"><strong>Total Price:</strong> {i.totalPrice} EGP</p>
+            </Card.Body>
+          </Card>
+        ))
+      )}
     </Container>
+
       </div>
   );
 }

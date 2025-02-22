@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "admin@example.com",
       "password": "admin123",
       "role": "admin"
@@ -118,26 +118,7 @@
       "arrivalTime": "05:00",
       "price": 300,
       "seatsAvailable": 21,
-      "bookedSeats": [
-        2,
-        3,
-        7,
-        10,
-        30,
-        24,
-        26,
-        39,
-        8,
-        33,
-        32,
-        36,
-        17,
-        19,
-        11,
-        4,
-        12,
-        15
-      ]
+      "bookedSeats": []
     },
     {
       "id": "6",
@@ -149,30 +130,7 @@
       "arrivalTime": "05:00",
       "price": 300,
       "seatsAvailable": 28,
-      "bookedSeats": [
-        1,
-        2,
-        3,
-        4,
-        6,
-        10,
-        49,
-        9,
-        50,
-        48,
-        47,
-        33,
-        34,
-        35,
-        8,
-        22,
-        24,
-        37,
-        27,
-        42,
-        43,
-        39
-      ]
+      "bookedSeats": []
     },
     {
       "id": "88",
@@ -229,49 +187,39 @@
       "price": 4,
       "seatsAvailable": 275,
       "bookedSeats": []
+    },
+    {
+      "id": "60fd",
+      "name": "iti_zag_py",
+      "from": "zagazig",
+      "to": "cairo",
+      "departureTime": "18:00",
+      "arrivalTime": "20:00",
+      "price": 15,
+      "img": "https://img.12go.asia/0/plain/s3://12go-web-static/static/images/operator/19718/class/4345-outside.jpeg",
+      "seatsAvailable": 112,
+      "bookedSeats": [
+        1
+      ]
     }
   ],
   "tickets": [
     {
-      "id": "1740007597081",
-      "trainId": "6",
-      "trainName": "Sphinx Express",
-      "from": "Giza",
-      "to": "Luxor",
+      "id": "1740234245835",
+      "trainId": "60fd",
+      "trainName": "iti_zag_py",
+      "from": "zagazig",
+      "to": "cairo",
       "selectedSeats": [
-        33,
-        34,
-        35,
-        8,
-        22,
-        24
+        1
       ],
-      "totalPrice": 900,
-      "bookingDate": "2025-02-19T23:26:37.081Z",
-      "userId": "4017",
-      "username": "adidas",
-      "email": "ITI@GMAIxLL.com",
-      "nationalId": "11223344556641"
-    },
-    {
-      "id": "1740008395408",
-      "trainId": "6",
-      "trainName": "Sphinx Express",
-      "from": "Giza",
-      "to": "Luxor",
-      "selectedSeats": [
-        27,
-        42,
-        43,
-        39
-      ],
-      "totalPrice": 300,
-      "bookingDate": "2025-02-19T23:39:55.408Z",
+      "totalPrice": 15,
+      "bookingDate": "2025-02-22T14:24:05.835Z",
       "userId": "b489",
       "username": "waheed eidarous",
       "email": "git@gmail.com",
       "nationalId": "11223344556673",
-      "imgUrl": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png"
+      "imgUrl": "https://img.12go.asia/0/plain/s3://12go-web-static/static/images/operator/19718/class/4345-outside.jpeg"
     }
   ]
 }

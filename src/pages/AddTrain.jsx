@@ -11,6 +11,7 @@ export function AddTrain() {
     departureTime: "",
     arrivalTime: "",
     price: "",
+    img:'',
     seatsAvailable: "",
     bookedSeats: [],
   });
@@ -54,6 +55,11 @@ export function AddTrain() {
         <Form.Group className="mb-3">
           <Form.Label>Train Name</Form.Label>
           <Form.Control type="text" name="name" value={trainData.name} onChange={handleChange} required />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Train image</Form.Label>
+          <Form.Control type="text" name="img" value={trainData.img} onChange={handleChange} required />
         </Form.Group>
 
         <Form.Group className="mb-3">

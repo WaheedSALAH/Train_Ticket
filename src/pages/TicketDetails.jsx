@@ -2,6 +2,10 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Card, Form, Button, Row, Col, Alert, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+
 
 export function TicketDetails() {
   const { id } = useParams();
@@ -14,7 +18,6 @@ export function TicketDetails() {
   const [booked, setBooked] = useState(false);
   const [user, setUser] = useState(null);
 
-  // Fetch Train & User Data
   useEffect(() => {
     const fetchTrainData = async () => {
       try {
@@ -37,7 +40,6 @@ export function TicketDetails() {
 
   if (!train) return <h2 className="text-center mt-5">Loading train details...</h2>;
 
-  // Fetch updated train data after booking
   const fetchTrainData = async () => {
     try {
       const response = await axios.get(`http://localhost:3005/trains/${id}`);
@@ -47,7 +49,6 @@ export function TicketDetails() {
     }
   };
 
-  // Seat selection logic
   const handleSeatSelection = (seat) => {
     if (selectedSeats.includes(seat)) {
       setSelectedSeats(selectedSeats.filter(s => s !== seat));
@@ -61,10 +62,8 @@ export function TicketDetails() {
     }
   };
 
-  // Check if seat is already booked
   const isSeatBooked = (seat) => train.bookedSeats.includes(seat);
 
-  // Handle Booking Confirmation
   const handleConfirmBooking = async () => {
     if (user.role === "admin") {
       setError("Sorry, you act as admin");
@@ -107,14 +106,12 @@ export function TicketDetails() {
     };
   
     try {
-      // Fetch all tickets to check if the user already has one
       const response = await axios.get("http://localhost:3005/tickets");
       const tickets = response.data;
   
       let existingTicket = tickets.find((t) => t.email === user.email);
   
       if (existingTicket) {
-        // Update existing ticket by adding new seats
         let updatedSeats = [...new Set([...existingTicket.selectedSeats, ...ticketData.selectedSeats])];
   
         await axios.put(`http://localhost:3005/tickets/${existingTicket.id}`, {
@@ -122,17 +119,15 @@ export function TicketDetails() {
           selectedSeats: updatedSeats,
         });
       } else {
-        // Create new ticket if the user has no existing one
         await axios.post("http://localhost:3005/tickets", ticketData);
       }
   
-      // Update the train with booked seats
       await axios.patch(`http://localhost:3005/trains/${id}`, {
         seatsAvailable: train.seatsAvailable - numSeats,
         bookedSeats: [...train.bookedSeats, ...selectedSeats],
       });
   
-      await fetchTrainData(); // Refresh train data after booking
+      await fetchTrainData(); 
   
       setSuccess(`Booking successful! Seats: ${selectedSeats.join(", ")}`);
       setSelectedSeats([]);
@@ -145,8 +140,7 @@ export function TicketDetails() {
     }
   };
   
-  // Generate seat layout (4 seats per row)
-  const totalSeats = train.seatsAvailable + train.bookedSeats.length; // Total seats originally
+  const totalSeats = train.seatsAvailable + train.bookedSeats.length;
   const availableSeats = Array.from({ length: totalSeats }, (_, i) => i + 1);
   const seatRows = [];
   for (let i = 0; i < availableSeats.length; i += 4) {
@@ -155,31 +149,49 @@ export function TicketDetails() {
 
   return (
     <Container className="mt-5">
-      <Card className="shadow-lg p-4">
+
+<div className="text-center m-3">
+  <motion.div 
+    whileTap={{ scale: 0.9 }} 
+    whileHover={{ scale: 1.05 }} 
+  >
+    <Link to="/" className="btn btn-dark px-3 py-2 shadow-sm">
+      Back to home
+    </Link>
+  </motion.div>
+</div>
+
+      <Card className="shadow-lg p-4 border-0 rounded-4">
         <Card.Body>
-          
-          <h2 className="text-center mb-4">🚆 {train.name} - Ticket Booking</h2>
+          <h2 className="text-center mb-4 text-primary fw-bold shadow-sm">🚆 {train.name} - Ticket Booking</h2>
           
           <div className="text-center mb-4">
-            <img src={train.img} alt={train.name} className="img-fluid rounded-3" />
+            <img 
+              src={train.img} 
+              alt={train.name} 
+              className="img-fluid rounded-3 shadow-sm" 
+              style={{ maxWidth: "300px", height: "auto" }}
+            />
           </div> 
-          <p><strong>Route:</strong> {train.from} → {train.to}</p>
-          <p><strong>Departure:</strong> {train.departureTime}</p>
-          <p><strong>Price per Seat:</strong> {train.price} EGP</p>
+
+          <p className="fs-5"><strong> Route:</strong> {train.from} → {train.to}</p>
+          <p className="fs-5"><strong>⏳ Departure:</strong> {train.departureTime}</p>
+          <p className="fs-5 text-success"><strong>Price per Seat:</strong> {train.price} EGP</p>
 
           {user && (
-            <>
-              <h5>👤 Passenger Details:</h5>
+            <div className="bg-light p-3 rounded-3 shadow-sm">
+              <h5 className="text-primary">👤 Passenger Details</h5>
               <p><strong>Name:</strong> {user.username}</p>
               <p><strong>Email:</strong> {user.email}</p>
               <p><strong>National ID:</strong> {user.nationalId}</p>
-            </>
+            </div>
           )}
 
           <Form.Group className="mb-3">
-            <Form.Label><strong>Number of Seats:</strong></Form.Label>
+            <Form.Label className="fs-5"><strong>Number of Seats:</strong></Form.Label>
             <Form.Control
               as="select"
+              className="form-select shadow-sm"
               value={numSeats}
               onChange={(e) => {
                 setNumSeats(Number(e.target.value));
@@ -192,36 +204,31 @@ export function TicketDetails() {
             </Form.Control>
           </Form.Group>
 
-          <p><strong>Select Your Seats:</strong></p>
-          <div className="d-flex flex-column align-items-center">
-            {seatRows.map((row, rowIndex) => (
-              <div key={rowIndex} className="d-flex justify-content-center mb-2">
-                {row.map(seat => (
-                  <Button
-                    key={seat}
-                    variant={isSeatBooked(seat) ? "secondary" : selectedSeats.includes(seat) ? "success" : "outline-primary"}
-                    className="seat-button mx-1"
-                    onClick={() => handleSeatSelection(seat)}
-                    disabled={isSeatBooked(seat)}
-                  >
-                    {seat}
-                  </Button>
-                ))}
-              </div>
-            ))}
-          </div>
+          <p className="fs-5"><strong>🪑 Select Your Seats:</strong></p>
+          <div className="d-flex flex-wrap justify-content-center gap-2">
+  {seatRows.flat().map((seat) => (
+    <Button
+      key={seat}
+      variant={isSeatBooked(seat) ? "secondary" : selectedSeats.includes(seat) ? "success" : "outline-primary"}
+      className="fw-bold"
+      onClick={() => handleSeatSelection(seat)}
+      disabled={isSeatBooked(seat)}
+    >
+      {seat}
+    </Button>
+  ))}
+</div>
+
 
           {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
           {success && <Alert variant="success" className="mt-3">{success}</Alert>}
 
-          <h4 className="mt-3">Total Price: {numSeats * train.price} EGP</h4>
-          <Button variant="primary" className="w-100 mt-3" onClick={handleConfirmBooking} disabled={loading || booked}>
-            {loading ? <Spinner animation="border" size="sm" /> : booked ? "Booking Confirmed ✅" : "Confirm Booking"}
+          <h4 className="mt-3 text-center text-dark"><strong>💵 Total Price:</strong> {numSeats * train.price} EGP</h4>
+          <Button variant="primary" className="w-100 mt-3 fs-5 fw-bold rounded-3" onClick={handleConfirmBooking} disabled={loading || booked}>
+            {loading ? <Spinner animation="border" size="sm" /> : booked ? "✅ Booking Confirmed" : "Confirm Booking"}
           </Button>
         </Card.Body>
       </Card>
-
-
     </Container>
   );
 }

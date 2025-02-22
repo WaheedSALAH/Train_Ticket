@@ -7,26 +7,69 @@ export function Header() {
     console.log(loggedInUser.role)
 
     return (
-        <Navbar bg="dark"  data-bs-theme="light">
-            <Container>
-                <Navbar.Brand href="/" className='text-warning fs-1 shadow-sm font-weight-bold'>Train Ticket</Navbar.Brand>
-                <Nav className="ms-auto ">
-                    {loggedInUser.role == 'admin' && (
-                    <NavLink className={({ isActive }) => isActive ? "text-danger nav-link" : "text-light nav-link"} 
-                    to="/admin">Dashboard</NavLink>)}
-                    <NavLink className={( { isActive } ) => isActive ? "text-danger nav-link" : "text-light nav-link"} to="/">Home</NavLink>
-                    {/* <NavLink className={( { isActive } ) => isActive ? "text-danger nav-link" : "text-light nav-link"} to="/ticket-details">My Ticket</NavLink> */}
-                    {loggedInUser && loggedInUser.role !== 'admin' && (
-                    <NavLink className={({ isActive }) => isActive ? "text-danger nav-link" : "text-light nav-link"} 
-                    to="/ticket-details">My Ticket</NavLink>)}
-                    {loggedInUser && (
-                    <NavLink className={({ isActive }) => isActive ? "text-danger nav-link" : "text-light nav-link"} 
-                    to="/login">Logout</NavLink>)}
-                    {!loggedInUser && (
-                    <NavLink className={({ isActive }) => isActive ? "text-danger nav-link" : "text-light nav-link"} 
-                    to="/login">Login</NavLink>)}
-                </Nav>
-            </Container>
-        </Navbar>
+        <Navbar expand="lg" bg="dark" variant="dark" className="shadow-lg">
+        <Container>
+          {/* Logo and Brand */}
+          <Navbar.Brand href="/" className="d-flex align-items-center">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQUmUDn9WZD5uXSW9FNekZ4iigNP7PQaFAvA&s"
+              alt="Logo"
+              style={{ width: "80px", height: "50px", objectFit: "cover" }}
+              className="rounded me-2"
+            />
+            <span className="text-warning fw-bold fs-3 shadow-sm">Train Ticket</span>
+          </Navbar.Brand>
+  
+          {/* Navbar Toggler for Mobile */}
+          <Navbar.Toggle aria-controls="navbar-nav" />
+  
+          {/* Navbar Links */}
+          <Navbar.Collapse id="navbar-nav">
+            <Nav className="ms-auto">
+              {loggedInUser?.role === "admin" && (
+                <NavLink
+                  className={({ isActive }) => (isActive ? "text-danger nav-link" : "text-light nav-link")}
+                  to="/admin"
+                >
+                  Dashboard
+                </NavLink>
+              )}
+  
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-danger nav-link" : "text-light nav-link")}
+                to="/"
+              >
+                Home
+              </NavLink>
+  
+              {loggedInUser && loggedInUser.role !== "admin" && (
+                <NavLink
+                  className={({ isActive }) => (isActive ? "text-danger nav-link" : "text-light nav-link")}
+                  to="/ticket-details"
+                >
+                  My Ticket
+                </NavLink>
+              )}
+  
+              {loggedInUser ? (
+                <NavLink
+                  className={({ isActive }) => (isActive ? "text-danger nav-link" : "text-light nav-link")}
+                  to="/login"
+                >
+                  Logout
+                </NavLink>
+              ) : (
+                <NavLink
+                  className={({ isActive }) => (isActive ? "text-danger nav-link" : "text-light nav-link")}
+                  to="/login"
+                >
+                  Login
+                </NavLink>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+  
     )
 }

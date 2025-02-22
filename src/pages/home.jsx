@@ -36,15 +36,17 @@ export function Home() {
   };
 
   return (
-    <div>
+    <div className="">
       <Header/>
 
     <Container className="mt-4">
-      <h2 className="text-center mb-4">Search for Trains</h2>
-      <Row className="justify-content-center">
+      <div className="text-center m-5">
+      <h2 className="text-center mb-4 bg-light d-inline shadow rounded p-2">Search for Trains</h2>
+      </div>
+      <Row className="justify-content-center text-center">
         <Col md={5}>
           <Form.Group controlId="fromStation">
-            <Form.Label>From</Form.Label>
+            <Form.Label className="bg-dark text-light rounded p-1">From</Form.Label>
             <Form.Select value={fromStation} onChange={(e) => setFromStation(e.target.value)}>
               <option value="">Select Departure Station</option>
               {stations.map((station, index) => (
@@ -55,7 +57,7 @@ export function Home() {
         </Col>
         <Col md={5}>
           <Form.Group controlId="toStation">
-            <Form.Label>To</Form.Label>
+            <Form.Label className="bg-dark text-light rounded py-1 px-3">To</Form.Label>
             <Form.Select 
               value={toStation} 
               onChange={(e) => setToStation(e.target.value)}

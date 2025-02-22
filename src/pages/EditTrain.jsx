@@ -9,6 +9,7 @@ export function EditTrain() {
     name: "",
     from: "",
     to: "",
+    img:'',
     departureTime: "",
     arrivalTime: "",
     price: "",
@@ -56,6 +57,11 @@ export function EditTrain() {
         <Form.Group className="mb-3">
           <Form.Label>Train Name</Form.Label>
           <Form.Control type="text" name="name" value={trainData.name} onChange={handleChange} required />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Train img</Form.Label>
+          <Form.Control type="text" name="img" value={trainData.img} onChange={handleChange} required />
         </Form.Group>
 
         <Form.Group className="mb-3">
