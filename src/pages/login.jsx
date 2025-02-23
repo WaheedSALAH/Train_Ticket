@@ -275,7 +275,7 @@ export function Login() {
 
             <div className="text-center mt-4">
               <FormText>
-                Don't have an account? <Link className="text-danger" to="/register">Register</Link>
+                Dont have an account? <Link className="text-danger" to="/register">Register</Link>
               </FormText>
             </div>
           </Form>

@@ -38,8 +38,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/AddTrain" element={<AddTrain />} />
         <Route path="/EditTrain/:id" element={<EditTrain />} />
-        <Route path="/ticket-details/:id" element={<TicketDetails />} /> {/* 👈 Route with ID */}
-        <Route path="/ticket-details/" element={<MyTicket />} /> {/* 👈 Route with ID */}
+        <Route path="/ticket-details/:id" element={<TicketDetails />} /> 
+        <Route path="/ticket-details/" element={<MyTicket />} /> 
         
 
       </Routes>

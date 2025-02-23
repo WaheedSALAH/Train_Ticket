@@ -6,7 +6,7 @@ export function TrainCard({ train }) {
   const navigate = useNavigate();
 
   const handleBookNow = () => {
-    navigate(`/ticket-details/${train.id}`); // 👈 Pass only the train ID in the URL
+    navigate(`/ticket-details/${train.id}`); 
   };
 
   return (

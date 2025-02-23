@@ -270,9 +270,9 @@ export function Register() {
   const [usernameError, setUsernameError] = useState("");
 
 const validateUsername = () => {
-  const usernameRegex = /^[a-zA-Z0-9]{3,15}$/; // Only letters & numbers, 3-15 chars
+  const usernameRegex = /^[a-zA-Z0-9]{4,15}$/; 
   if (!usernameRegex.test(formData.username)) {
-    setUsernameError("Username must be 3-15 letters or numbers");
+    setUsernameError("Username must be 4-15 letters or numbers");
   } else {
     setUsernameError("");
   }
@@ -357,7 +357,7 @@ const validateUsername = () => {
     name="username"
     value={formData.username}
     onChange={handleChange}
-    onBlur={validateUsername} // 🔥 Run validation when user exits input
+    onBlur={validateUsername}
     required
   />
   {usernameError && <FormText className="text-danger">{usernameError}</FormText>}

@@ -9,7 +9,7 @@ export function EditTrain() {
     name: "",
     from: "",
     to: "",
-    img:'',
+    img: "",
     departureTime: "",
     arrivalTime: "",
     price: "",
@@ -32,7 +32,11 @@ export function EditTrain() {
 
     setTrainData((prevData) => ({
       ...prevData,
-      [name]: name === "bookedSeats" ? value.split(",").map(Number) : value,
+      [name]: name === "bookedSeats"
+        ? value.split(",").map(seat => Number(seat.trim())).filter(seat => !isNaN(seat)) 
+        : name === "seatsAvailable" || name === "price"
+        ? Number(value) || 0  
+        : value,
     }));
   };
 
@@ -60,7 +64,7 @@ export function EditTrain() {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Train img</Form.Label>
+          <Form.Label>Train Image URL</Form.Label>
           <Form.Control type="text" name="img" value={trainData.img} onChange={handleChange} required />
         </Form.Group>
 
@@ -94,13 +98,12 @@ export function EditTrain() {
           <Form.Control type="number" name="seatsAvailable" value={trainData.seatsAvailable} onChange={handleChange} required />
         </Form.Group>
 
-        {/* Booked Seats Input with Reset Button */}
         <Form.Group className="mb-3">
           <Form.Label>Booked Seats</Form.Label>
           <Form.Control
             type="text"
             name="bookedSeats"
-            value={trainData.bookedSeats.join(", ")} // Display as comma-separated values
+            value={trainData.bookedSeats.join(", ")} 
             onChange={handleChange}
           />
           <Button
@@ -112,7 +115,9 @@ export function EditTrain() {
           </Button>
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="w-100">Save Changes</Button>
+        <Button variant="primary" type="submit" className="w-100">
+          Save Changes
+        </Button>
       </Form>
     </Container>
   );

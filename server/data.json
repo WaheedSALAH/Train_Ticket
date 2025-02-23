@@ -50,20 +50,72 @@
       "confirmPassword": "ITI@GMAILL.com",
       "nationalId": "11223344556641",
       "checkBox": true
+    },
+    {
+      "id": "6607",
+      "username": "waheed",
+      "email": "iti@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556620",
+      "checkBox": true
+    },
+    {
+      "id": "2652",
+      "username": "waheed salah",
+      "email": "iti_zag@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556655",
+      "checkBox": true
+    },
+    {
+      "id": "2a81",
+      "username": "waheed22",
+      "email": "hosny@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556671",
+      "checkBox": true
+    },
+    {
+      "id": "9ba3",
+      "username": "waheed22",
+      "email": "ITI_zag@gamil.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556614",
+      "checkBox": true
+    },
+    {
+      "id": "0ac5",
+      "username": "iti45",
+      "email": "iti_zagazig@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556659",
+      "checkBox": true
+    },
+    {
+      "id": "fd73",
+      "username": "hosny66",
+      "email": "waheed@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344550673",
+      "checkBox": true
+    },
+    {
+      "id": "5e31",
+      "username": "itizagazig",
+      "email": "itibranch@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344559677",
+      "checkBox": true
     }
   ],
   "trains": [
-    {
-      "id": "1",
-      "name": "Cairo Express",
-      "from": "Cairo",
-      "to": "Alexandria",
-      "departureTime": "08:00",
-      "arrivalTime": "11:00",
-      "price": 150,
-      "seatsAvailable": 100,
-      "bookedSeats": []
-    },
     {
       "id": "2",
       "name": "Delta Rapid",
@@ -72,22 +124,9 @@
       "departureTime": "10:30",
       "arrivalTime": "13:00",
       "price": 120,
-      "seatsAvailable": 69,
-      "bookedSeats": [
-        59,
-        63
-      ]
-    },
-    {
-      "id": "3",
-      "name": "Nile Express",
-      "from": "Cairo",
-      "to": "Aswan",
-      "departureTime": "22:00",
-      "arrivalTime": "06:00",
-      "price": 350,
-      "seatsAvailable": 60,
-      "bookedSeats": []
+      "seatsAvailable": 66,
+      "bookedSeats": [],
+      "img": "https://english.ahram.org.eg/Media/News/2021/12/28/41_2021-637763067102687306-268.jpg"
     },
     {
       "id": "4",
@@ -97,34 +136,9 @@
       "departureTime": "17:00",
       "arrivalTime": "00:30",
       "price": 250,
-      "seatsAvailable": 75,
-      "bookedSeats": []
-    },
-    {
-      "id": "5",
-      "name": "Delta Night",
-      "from": "Mansoura",
-      "to": "Alexandria",
-      "departureTime": "20:00",
-      "arrivalTime": "22:30",
-      "price": 110,
-      "seatsAvailable": 85,
-      "bookedSeats": []
-    },
-    {
-      "id": "847",
-      "name": "Sphinx Express",
-      "img": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png",
-      "from": "Giza",
-      "to": "Luxor",
-      "departureTime": "21:00",
-      "arrivalTime": "05:00",
-      "price": 300,
-      "seatsAvailable": 19,
-      "bookedSeats": [
-        21,
-        19
-      ]
+      "seatsAvailable": 190,
+      "bookedSeats": [],
+      "img": "https://paliparan.com/wp-content/uploads/2024/11/cairo-bashtil-6.jpg"
     },
     {
       "id": "6",
@@ -136,9 +150,7 @@
       "arrivalTime": "05:00",
       "price": 300,
       "seatsAvailable": 27,
-      "bookedSeats": [
-        7
-      ]
+      "bookedSeats": []
     },
     {
       "id": "88",
@@ -149,9 +161,19 @@
       "departureTime": "21:00",
       "arrivalTime": "05:00",
       "price": 300,
-      "seatsAvailable": 34,
+      "seatsAvailable": 23,
       "bookedSeats": [
-        35
+        27,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15,
+        16,
+        17,
+        29
       ]
     },
     {
@@ -177,76 +199,17 @@
       "bookedSeats": []
     },
     {
-      "id": "9",
-      "name": "Mediterranean Express",
-      "from": "Alexandria",
-      "to": "Port Said",
-      "departureTime": "09:00",
-      "arrivalTime": "12:00",
-      "price": 160,
-      "seatsAvailable": 70,
-      "bookedSeats": []
-    },
-    {
-      "id": "8ff8",
-      "name": "iti_zag",
-      "from": "zero",
-      "to": "hero",
-      "departureTime": "19:05",
-      "arrivalTime": "20:01",
-      "price": 4,
-      "seatsAvailable": 275,
-      "bookedSeats": []
-    },
-    {
-      "id": "60fd",
-      "name": "iti_zag_py",
+      "id": "cf90",
+      "name": "train",
       "from": "zagazig",
       "to": "cairo",
-      "departureTime": "18:00",
-      "arrivalTime": "20:00",
+      "departureTime": "03:35",
+      "arrivalTime": "04:35",
       "price": 15,
-      "img": "https://img.12go.asia/0/plain/s3://12go-web-static/static/images/operator/19718/class/4345-outside.jpeg",
-      "seatsAvailable": 112,
-      "bookedSeats": [
-        1
-      ]
+      "img": "https://www.efinance.com.eg/wp-content/uploads/2022/01/Transporation.jpg",
+      "seatsAvailable": 100,
+      "bookedSeats": []
     }
   ],
-  "tickets": [
-    {
-      "id": "1740307531472",
-      "trainId": "847",
-      "trainName": "Sphinx Express",
-      "from": "Giza",
-      "to": "Luxor",
-      "selectedSeats": [
-        21,
-        19
-      ],
-      "totalPrice": 600,
-      "bookingDate": "2025-02-23T10:45:31.472Z",
-      "userId": "b489",
-      "username": "waheed eidarous",
-      "email": "git@gmail.com",
-      "nationalId": "11223344556673",
-      "imgUrl": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png"
-    },
-    {
-      "id": "1740307544559",
-      "trainId": "2",
-      "trainName": "Delta Rapid",
-      "from": "Alexandria",
-      "to": "Mansoura",
-      "selectedSeats": [
-        63
-      ],
-      "totalPrice": 120,
-      "bookingDate": "2025-02-23T10:45:44.559Z",
-      "userId": "b489",
-      "username": "waheed eidarous",
-      "email": "git@gmail.com",
-      "nationalId": "11223344556673"
-    }
-  ]
+  "tickets": []
 }

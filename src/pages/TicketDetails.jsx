@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Card, Form, Button, Row, Col, Alert, Spinner } from "react-bootstrap";
+import { Container, Card, Form, Button, Alert, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
