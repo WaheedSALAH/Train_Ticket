@@ -109,25 +109,30 @@ export function TicketDetails() {
       const response = await axios.get("http://localhost:3005/tickets");
       const tickets = response.data;
   
-      let existingTicket = tickets.find((t) => t.email === user.email);
+      // البحث عن تذكرة للمستخدم ولكن فقط لهذا القطار
+      let existingTicket = tickets.find((t) => t.email === user.email && t.trainId === train.id);
   
       if (existingTicket) {
+        // تحديث المقاعد في نفس التذكرة بدلاً من إنشاء واحدة جديدة
         let updatedSeats = [...new Set([...existingTicket.selectedSeats, ...ticketData.selectedSeats])];
   
         await axios.put(`http://localhost:3005/tickets/${existingTicket.id}`, {
           ...existingTicket,
           selectedSeats: updatedSeats,
+          totalPrice: updatedSeats.length * train.price, // تحديث السعر بناءً على عدد المقاعد الجديدة
         });
       } else {
+        // إنشاء تذكرة جديدة فقط إذا كان الحجز لقطار مختلف
         await axios.post("http://localhost:3005/tickets", ticketData);
       }
   
+      // تحديث حالة القطار بحجز المقاعد
       await axios.patch(`http://localhost:3005/trains/${id}`, {
         seatsAvailable: train.seatsAvailable - numSeats,
         bookedSeats: [...train.bookedSeats, ...selectedSeats],
       });
   
-      await fetchTrainData(); 
+      await fetchTrainData();
   
       setSuccess(`Booking successful! Seats: ${selectedSeats.join(", ")}`);
       setSelectedSeats([]);
@@ -139,7 +144,7 @@ export function TicketDetails() {
       setLoading(false);
     }
   };
-  
+    
   const totalSeats = train.seatsAvailable + train.bookedSeats.length;
   const availableSeats = Array.from({ length: totalSeats }, (_, i) => i + 1);
   const seatRows = [];

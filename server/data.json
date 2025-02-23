@@ -72,8 +72,11 @@
       "departureTime": "10:30",
       "arrivalTime": "13:00",
       "price": 120,
-      "seatsAvailable": 71,
-      "bookedSeats": []
+      "seatsAvailable": 69,
+      "bookedSeats": [
+        59,
+        63
+      ]
     },
     {
       "id": "3",
@@ -117,8 +120,11 @@
       "departureTime": "21:00",
       "arrivalTime": "05:00",
       "price": 300,
-      "seatsAvailable": 21,
-      "bookedSeats": []
+      "seatsAvailable": 19,
+      "bookedSeats": [
+        21,
+        19
+      ]
     },
     {
       "id": "6",
@@ -129,8 +135,10 @@
       "departureTime": "21:00",
       "arrivalTime": "05:00",
       "price": 300,
-      "seatsAvailable": 28,
-      "bookedSeats": []
+      "seatsAvailable": 27,
+      "bookedSeats": [
+        7
+      ]
     },
     {
       "id": "88",
@@ -141,8 +149,10 @@
       "departureTime": "21:00",
       "arrivalTime": "05:00",
       "price": 300,
-      "seatsAvailable": 35,
-      "bookedSeats": []
+      "seatsAvailable": 34,
+      "bookedSeats": [
+        35
+      ]
     },
     {
       "id": "99",
@@ -205,21 +215,38 @@
   ],
   "tickets": [
     {
-      "id": "1740234245835",
-      "trainId": "60fd",
-      "trainName": "iti_zag_py",
-      "from": "zagazig",
-      "to": "cairo",
+      "id": "1740307531472",
+      "trainId": "847",
+      "trainName": "Sphinx Express",
+      "from": "Giza",
+      "to": "Luxor",
       "selectedSeats": [
-        1
+        21,
+        19
       ],
-      "totalPrice": 15,
-      "bookingDate": "2025-02-22T14:24:05.835Z",
+      "totalPrice": 600,
+      "bookingDate": "2025-02-23T10:45:31.472Z",
       "userId": "b489",
       "username": "waheed eidarous",
       "email": "git@gmail.com",
       "nationalId": "11223344556673",
-      "imgUrl": "https://img.12go.asia/0/plain/s3://12go-web-static/static/images/operator/19718/class/4345-outside.jpeg"
+      "imgUrl": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png"
+    },
+    {
+      "id": "1740307544559",
+      "trainId": "2",
+      "trainName": "Delta Rapid",
+      "from": "Alexandria",
+      "to": "Mansoura",
+      "selectedSeats": [
+        63
+      ],
+      "totalPrice": 120,
+      "bookingDate": "2025-02-23T10:45:44.559Z",
+      "userId": "b489",
+      "username": "waheed eidarous",
+      "email": "git@gmail.com",
+      "nationalId": "11223344556673"
     }
   ]
 }
