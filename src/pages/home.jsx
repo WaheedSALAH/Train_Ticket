@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { TrainCard } from "../components/TrainCard";
+import { TrainCard } from "../components/trainCard";
 import { Header } from "../components/Header";
 
 export function Home() {
