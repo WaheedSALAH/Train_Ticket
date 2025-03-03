@@ -161,7 +161,7 @@
       "departureTime": "21:00",
       "arrivalTime": "05:00",
       "price": 300,
-      "seatsAvailable": 23,
+      "seatsAvailable": 21,
       "bookedSeats": [
         27,
         5,
@@ -173,7 +173,9 @@
         15,
         16,
         17,
-        29
+        29,
+        24,
+        25
       ]
     },
     {
@@ -211,5 +213,24 @@
       "bookedSeats": []
     }
   ],
-  "tickets": []
+  "tickets": [
+    {
+      "id": "1740971907118",
+      "trainId": "88",
+      "trainName": "Sphinx Express",
+      "from": "Giza",
+      "to": "Luxor",
+      "selectedSeats": [
+        24,
+        25
+      ],
+      "totalPrice": 600,
+      "bookingDate": "2025-03-03T03:18:27.118Z",
+      "userId": "b489",
+      "username": "waheed eidarous",
+      "email": "git@gmail.com",
+      "nationalId": "11223344556673",
+      "imgUrl": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png"
+    }
+  ]
 }
