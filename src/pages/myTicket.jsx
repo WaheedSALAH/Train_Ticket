@@ -40,7 +40,7 @@ export default function MyTicket() {
 
     try {
       // Fetch train data
-      const trainResponse = await axios.get(`http://localhost:3005/trains/${ticket.trainId}`);
+      const trainResponse = await axios.get(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${ticket.trainId}`);
       const trainData = trainResponse.data;
 
       console.log("Train Data Before Update:", trainData);
@@ -52,7 +52,7 @@ export default function MyTicket() {
       const updatedBookedSeats = trainData.bookedSeats.filter(seat => !ticket.selectedSeats.includes(seat));
 
       // Update train data
-      await axios.patch(`http://localhost:3005/trains/${ticket.trainId}`, {
+      await axios.patch(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${ticket.trainId}`, {
         seatsAvailable: updatedSeatsAvailable,
         bookedSeats: updatedBookedSeats
       });
@@ -63,7 +63,7 @@ export default function MyTicket() {
       });
 
       // Delete ticket from the database
-      await axios.delete(`http://localhost:3005/tickets/${ticket.id}`);
+      await axios.delete(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/tickets/${ticket.id}`);
 
       // Remove ticket from UI
       setTickets(prevTickets => prevTickets.filter(t => t.id !== ticket.id));
