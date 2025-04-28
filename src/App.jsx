@@ -17,7 +17,7 @@
 
 // export default App
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/home';
 import { Login } from './pages/login';
 import { Register } from './pages/register';
@@ -30,7 +30,7 @@ import { EditTrain } from './pages/EditTrain';
 
 function App() {
   return (
-    <Router basename="/Train_Ticket">
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -38,8 +38,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/AddTrain" element={<AddTrain />} />
         <Route path="/EditTrain/:id" element={<EditTrain />} />
-        <Route path="/ticket-details/:id" element={<TicketDetails />} /> 
-        <Route path="/ticket-details/" element={<MyTicket />} /> 
+        <Route path="/ticket-details/:id" element={<TicketDetails />} />
+        <Route path="/ticket-details/" element={<MyTicket />} />
       </Routes>
     </Router>
   );
