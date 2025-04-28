@@ -124,8 +124,10 @@
       "departureTime": "10:30",
       "arrivalTime": "13:00",
       "price": 120,
-      "seatsAvailable": 66,
-      "bookedSeats": [],
+      "seatsAvailable": 65,
+      "bookedSeats": [
+        8
+      ],
       "img": "https://english.ahram.org.eg/Media/News/2021/12/28/41_2021-637763067102687306-268.jpg"
     },
     {
@@ -161,7 +163,7 @@
       "departureTime": "21:00",
       "arrivalTime": "05:00",
       "price": 300,
-      "seatsAvailable": 23,
+      "seatsAvailable": 22,
       "bookedSeats": [
         27,
         5,
@@ -173,7 +175,8 @@
         15,
         16,
         17,
-        29
+        29,
+        3
       ]
     },
     {
@@ -192,11 +195,12 @@
       "name": "Valley Express",
       "from": "Asyut",
       "to": "Cairo",
-      "departureTime": "14:00",
+      "departureTime": "14:30",
       "arrivalTime": "20:00",
       "price": 280,
       "seatsAvailable": 65,
-      "bookedSeats": []
+      "bookedSeats": [],
+      "img": "https://egyptunitedtours.com/wp-content/uploads/2021/02/Watania-Sleeping-Train-1.jpg"
     },
     {
       "id": "cf90",
@@ -211,5 +215,40 @@
       "bookedSeats": []
     }
   ],
-  "tickets": []
+  "tickets": [
+    {
+      "id": "1745836106116",
+      "trainId": "2",
+      "trainName": "Delta Rapid",
+      "from": "Alexandria",
+      "to": "Mansoura",
+      "selectedSeats": [
+        8
+      ],
+      "totalPrice": 120,
+      "bookingDate": "2025-04-28T10:28:26.116Z",
+      "userId": "b489",
+      "username": "waheed eidarous",
+      "email": "git@gmail.com",
+      "nationalId": "11223344556673",
+      "imgUrl": "https://english.ahram.org.eg/Media/News/2021/12/28/41_2021-637763067102687306-268.jpg"
+    },
+    {
+      "id": "1745837802133",
+      "trainId": "88",
+      "trainName": "Sphinx Express",
+      "from": "Giza",
+      "to": "Luxor",
+      "selectedSeats": [
+        3
+      ],
+      "totalPrice": 300,
+      "bookingDate": "2025-04-28T10:56:42.133Z",
+      "userId": "b489",
+      "username": "waheed eidarous",
+      "email": "git@gmail.com",
+      "nationalId": "11223344556673",
+      "imgUrl": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png"
+    }
+  ]
 }

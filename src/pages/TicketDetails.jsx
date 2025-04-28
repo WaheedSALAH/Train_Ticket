@@ -5,8 +5,6 @@ import { Container, Card, Form, Button, Alert, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-
-
 export function TicketDetails() {
   const { id } = useParams();
   const [train, setTrain] = useState(null);
@@ -21,7 +19,7 @@ export function TicketDetails() {
   useEffect(() => {
     const fetchTrainData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3005/trains/${id}`);
+        const response = await axios.get(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${id}`);
         setTrain(response.data);
       } catch (error) {
         console.error("Error fetching train details:", error);
@@ -39,15 +37,6 @@ export function TicketDetails() {
   }, [id]);
 
   if (!train) return <h2 className="text-center mt-5">Loading train details...</h2>;
-
-  const fetchTrainData = async () => {
-    try {
-      const response = await axios.get(`http://localhost:3005/trains/${id}`);
-      setTrain(response.data);
-    } catch (error) {
-      console.error("Error fetching updated train details:", error);
-    }
-  };
 
   const handleSeatSelection = (seat) => {
     if (selectedSeats.includes(seat)) {
@@ -69,26 +58,26 @@ export function TicketDetails() {
       setError("Sorry, you act as admin");
       return;
     }
-  
+
     if (!user) {
       setError("Please log in before booking.");
       return;
     }
-  
+
     if (selectedSeats.length !== numSeats) {
       setError("Please select the exact number of seats.");
       return;
     }
-  
+
     if (booked) {
       setError("You have already booked this ticket.");
       return;
     }
-  
+
     setLoading(true);
     setError("");
     setSuccess("");
-  
+
     const ticketData = {
       id: Date.now().toString(),
       trainId: train.id,
@@ -104,36 +93,33 @@ export function TicketDetails() {
       nationalId: user.nationalId,
       imgUrl: train.img,
     };
-  
+
     try {
-      const response = await axios.get("http://localhost:3005/tickets");
+      const response = await axios.get("https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/tickets");
       const tickets = response.data;
-  
-      // البحث عن تذكرة للمستخدم ولكن فقط لهذا القطار
+
       let existingTicket = tickets.find((t) => t.email === user.email && t.trainId === train.id);
-  
+
       if (existingTicket) {
-        // تحديث المقاعد في نفس التذكرة بدلاً من إنشاء واحدة جديدة
         let updatedSeats = [...new Set([...existingTicket.selectedSeats, ...ticketData.selectedSeats])];
-  
-        await axios.put(`http://localhost:3005/tickets/${existingTicket.id}`, {
+
+        await axios.put(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/tickets/${existingTicket.id}`, {
           ...existingTicket,
           selectedSeats: updatedSeats,
-          totalPrice: updatedSeats.length * train.price, // تحديث السعر بناءً على عدد المقاعد الجديدة
+          totalPrice: updatedSeats.length * train.price,
         });
       } else {
-        // إنشاء تذكرة جديدة فقط إذا كان الحجز لقطار مختلف
-        await axios.post("http://localhost:3005/tickets", ticketData);
+        await axios.post("https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/tickets", ticketData);
       }
-  
-      // تحديث حالة القطار بحجز المقاعد
-      await axios.patch(`http://localhost:3005/trains/${id}`, {
+
+      await axios.patch(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${id}`, {
         seatsAvailable: train.seatsAvailable - numSeats,
         bookedSeats: [...train.bookedSeats, ...selectedSeats],
       });
-  
-      await fetchTrainData();
-  
+
+      const updatedTrainResponse = await axios.get(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${id}`);
+      setTrain(updatedTrainResponse.data);
+
       setSuccess(`Booking successful! Seats: ${selectedSeats.join(", ")}`);
       setSelectedSeats([]);
       setBooked(true);
@@ -144,7 +130,7 @@ export function TicketDetails() {
       setLoading(false);
     }
   };
-    
+
   const totalSeats = train.seatsAvailable + train.bookedSeats.length;
   const availableSeats = Array.from({ length: totalSeats }, (_, i) => i + 1);
   const seatRows = [];
@@ -154,22 +140,21 @@ export function TicketDetails() {
 
   return (
     <Container className="mt-5">
-
-<div className="text-center m-3">
-  <motion.div 
-    whileTap={{ scale: 0.9 }} 
-    whileHover={{ scale: 1.05 }} 
-  >
-    <Link to="/" className="btn btn-dark px-3 py-2 shadow-sm">
-      Back to home
-    </Link>
-  </motion.div>
-</div>
+      <div className="text-center m-3">
+        <motion.div 
+          whileTap={{ scale: 0.9 }} 
+          whileHover={{ scale: 1.05 }} 
+        >
+          <Link to="/" className="btn btn-dark px-3 py-2 shadow-sm">
+            Back to home
+          </Link>
+        </motion.div>
+      </div>
 
       <Card className="shadow-lg p-4 border-0 rounded-4">
         <Card.Body>
           <h2 className="text-center mb-4 text-primary fw-bold shadow-sm">🚆 {train.name} - Ticket Booking</h2>
-          
+
           <div className="text-center mb-4">
             <img 
               src={train.img} 
@@ -177,7 +162,7 @@ export function TicketDetails() {
               className="img-fluid rounded-3 shadow-sm" 
               style={{ maxWidth: "300px", height: "auto" }}
             />
-          </div> 
+          </div>
 
           <p className="fs-5"><strong> Route:</strong> {train.from} → {train.to}</p>
           <p className="fs-5"><strong>⏳ Departure:</strong> {train.departureTime}</p>
@@ -211,19 +196,18 @@ export function TicketDetails() {
 
           <p className="fs-5"><strong>🪑 Select Your Seats:</strong></p>
           <div className="d-flex flex-wrap justify-content-center gap-2">
-  {seatRows.flat().map((seat) => (
-    <Button
-      key={seat}
-      variant={isSeatBooked(seat) ? "secondary" : selectedSeats.includes(seat) ? "success" : "outline-primary"}
-      className="fw-bold"
-      onClick={() => handleSeatSelection(seat)}
-      disabled={isSeatBooked(seat)}
-    >
-      {seat}
-    </Button>
-  ))}
-</div>
-
+            {seatRows.flat().map((seat) => (
+              <Button
+                key={seat}
+                variant={isSeatBooked(seat) ? "secondary" : selectedSeats.includes(seat) ? "success" : "outline-primary"}
+                className="fw-bold"
+                onClick={() => handleSeatSelection(seat)}
+                disabled={isSeatBooked(seat)}
+              >
+                {seat}
+              </Button>
+            ))}
+          </div>
 
           {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
           {success && <Alert variant="success" className="mt-3">{success}</Alert>}

@@ -19,7 +19,7 @@ export default function MyTicket() {
       }
 
       try {
-        const response = await axios.get("http://localhost:3005/tickets");
+        const response = await axios.get("https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/tickets");
         const userTickets = response.data.filter(i => i.email === userinfo.email);
         setTickets(userTickets);
       } catch (error) {

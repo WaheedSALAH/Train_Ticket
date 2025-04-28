@@ -89,7 +89,7 @@
 //     }
   
 //     try {
-//       const response = await axios.get('http://localhost:3005/users');
+//       const response = await axios.get('https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/users');
 //       const users = response.data;
   
 //       const emailExists = users.some((user) => user.email === formData.email);
@@ -111,7 +111,7 @@
 //       if (emailExists || nationalIdExists) return;
   
 //       // تسجيل المستخدم في قاعدة البيانات
-//       await axios.post('http://localhost:3005/users', formData);
+//       await axios.post('https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/users', formData);
 //       alert('Registered successfully');
 //       navigate('/login'); // ✅ سينتقل المستخدم إلى صفحة تسجيل الدخول
 //     } catch (error) {
@@ -304,7 +304,7 @@ const validateUsername = () => {
     if (passwordError || confirmPasswordError || emailError || error) return;
   
     try {
-      const response = await axios.get("http://localhost:3005/users");
+      const response = await axios.get("https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/users");
       const users = response.data;
   
       const emailExists = users.some((user) => user.email === formData.email);
@@ -315,7 +315,7 @@ const validateUsername = () => {
   
       if (emailExists || nationalIdExists) return;
   
-      await axios.post("http://localhost:3005/users", formData);
+      await axios.post("https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/users", formData);
       alert("✅ Registered successfully!");
       navigate("/login");
     } catch (error) {
