@@ -36,7 +36,7 @@ export function AddTrain() {
     }
 
     axios
-      .post("http://localhost:3005/trains", trainData)
+      .post("https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains", trainData)
       .then(() => {
         alert("Train added successfully!");
         navigate("/admin"); // Redirect back to Admin Page

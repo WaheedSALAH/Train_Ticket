@@ -22,7 +22,7 @@ export function EditTrain() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/trains/${id}`)
+      .get(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${id}`)
       .then((response) => setTrainData(response.data))
       .catch((error) => console.error("Error fetching train:", error));
   }, [id]);
@@ -44,7 +44,7 @@ export function EditTrain() {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:3005/trains/${id}`, trainData)
+      .put(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${id}`, trainData)
       .then(() => {
         alert("Train updated successfully!");
         navigate("/admin");
