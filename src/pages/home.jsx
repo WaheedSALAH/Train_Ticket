@@ -13,7 +13,7 @@ export function Home() {
   const [noTrainsFound, setNoTrainsFound] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:3005/trains")
+    axios.get("https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains")
       .then((response) => {
         setTrains(response.data);
 
