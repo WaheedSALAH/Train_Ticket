@@ -37,42 +37,49 @@ export default function MyTicket() {
   const cancelTicket = async (ticket) => {
     const confirmCancel = window.confirm("Are you sure you want to cancel this ticket?");
     if (!confirmCancel) return;
-
+  
     try {
       // Fetch train data
       const trainResponse = await axios.get(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${ticket.trainId}`);
       const trainData = trainResponse.data;
-
+  
       console.log("Train Data Before Update:", trainData);
-
+  
+      // Ensure selectedSeats is an array and check if it has data
+      if (!ticket.selectedSeats || ticket.selectedSeats.length === 0) {
+        setError("No seats selected for cancellation.");
+        return;
+      }
+  
       // Update seatsAvailable by adding back the canceled seats
       const updatedSeatsAvailable = trainData.seatsAvailable + ticket.selectedSeats.length;
-
+  
       // Remove canceled seats from bookedSeats
       const updatedBookedSeats = trainData.bookedSeats.filter(seat => !ticket.selectedSeats.includes(seat));
-
+  
       // Update train data
       await axios.patch(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${ticket.trainId}`, {
         seatsAvailable: updatedSeatsAvailable,
         bookedSeats: updatedBookedSeats
       });
-
+  
       console.log("Train Data After Update:", {
         seatsAvailable: updatedSeatsAvailable,
         bookedSeats: updatedBookedSeats
       });
-
+  
       // Delete ticket from the database
       await axios.delete(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/tickets/${ticket.id}`);
-
+  
       // Remove ticket from UI
       setTickets(prevTickets => prevTickets.filter(t => t.id !== ticket.id));
-
+  
     } catch (error) {
       console.error("Error canceling ticket:", error);
       setError("Failed to cancel the ticket.");
     }
   };
+  
 
   if (loading) return <Spinner animation="border" className="d-block mx-auto mt-5" />;
 

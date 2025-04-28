@@ -1,0 +1,220 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "5eed",
+      "username": "admin",
+      "email": "wdarwesh365@gmail.com",
+      "password": "http://localhost:3005/users",
+      "confirmPassword": "http://localhost:3005/users",
+      "nationalId": "11223344556677",
+      "checkBox": true
+    },
+    {
+      "id": "b489",
+      "username": "waheed eidarous",
+      "email": "git@gmail.com",
+      "password": "git@gmail.com",
+      "confirmPassword": "git@gmail.com",
+      "nationalId": "11223344556673",
+      "checkBox": true
+    },
+    {
+      "id": "161f",
+      "username": "adidas",
+      "email": "ITI@GMAILL.com",
+      "password": "ITI@GMAILL.com",
+      "confirmPassword": "ITI@GMAILL.com",
+      "nationalId": "11223344556674",
+      "checkBox": true
+    },
+    {
+      "id": "3a07",
+      "username": "waheed eidarous",
+      "email": "wsas@gmail.com",
+      "password": "wsas@gmail.com",
+      "confirmPassword": "wsas@gmail.com",
+      "nationalId": "11223344556670",
+      "checkBox": true
+    },
+    {
+      "id": "4017",
+      "username": "adidas",
+      "email": "ITI@GMAIxLL.com",
+      "password": "ITI@GMAILL.com",
+      "confirmPassword": "ITI@GMAILL.com",
+      "nationalId": "11223344556641",
+      "checkBox": true
+    },
+    {
+      "id": "6607",
+      "username": "waheed",
+      "email": "iti@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556620",
+      "checkBox": true
+    },
+    {
+      "id": "2652",
+      "username": "waheed salah",
+      "email": "iti_zag@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556655",
+      "checkBox": true
+    },
+    {
+      "id": "2a81",
+      "username": "waheed22",
+      "email": "hosny@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556671",
+      "checkBox": true
+    },
+    {
+      "id": "9ba3",
+      "username": "waheed22",
+      "email": "ITI_zag@gamil.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556614",
+      "checkBox": true
+    },
+    {
+      "id": "0ac5",
+      "username": "iti45",
+      "email": "iti_zagazig@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344556659",
+      "checkBox": true
+    },
+    {
+      "id": "fd73",
+      "username": "hosny66",
+      "email": "waheed@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344550673",
+      "checkBox": true
+    },
+    {
+      "id": "5e31",
+      "username": "itizagazig",
+      "email": "itibranch@gmail.com",
+      "password": "010123123",
+      "confirmPassword": "010123123",
+      "nationalId": "11223344559677",
+      "checkBox": true
+    }
+  ],
+  "trains": [
+    {
+      "id": "2",
+      "name": "Delta Rapid",
+      "from": "Alexandria",
+      "to": "Mansoura",
+      "departureTime": "10:30",
+      "arrivalTime": "13:00",
+      "price": 120,
+      "seatsAvailable": 65,
+      "bookedSeats": [
+        8
+      ],
+      "img": "https://english.ahram.org.eg/Media/News/2021/12/28/41_2021-637763067102687306-268.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Upper Egypt Special",
+      "from": "Cairo",
+      "to": "Sohag",
+      "departureTime": "17:00",
+      "arrivalTime": "00:30",
+      "price": 250,
+      "seatsAvailable": 190,
+      "bookedSeats": [],
+      "img": "https://paliparan.com/wp-content/uploads/2024/11/cairo-bashtil-6.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Sphinx Express",
+      "img": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png",
+      "from": "Giza",
+      "to": "Luxor",
+      "departureTime": "21:00",
+      "arrivalTime": "05:00",
+      "price": 300,
+      "seatsAvailable": 27,
+      "bookedSeats": []
+    },
+    {
+      "id": "88",
+      "name": "Sphinx Express",
+      "img": "https://africa.cgtn.com/wp-content/uploads/2023/06/Train-1.png",
+      "from": "Giza",
+      "to": "Luxor",
+      "departureTime": "21:00",
+      "arrivalTime": "05:00",
+      "price": 300,
+      "seatsAvailable": 23,
+      "bookedSeats": [
+        27,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15,
+        16,
+        17,
+        29,
+        3,
+        29
+      ]
+    },
+    {
+      "id": "99",
+      "name": "Red Sea Line",
+      "from": "Suez",
+      "to": "Cairo",
+      "departureTime": "07:30",
+      "arrivalTime": "09:30",
+      "price": 100,
+      "seatsAvailable": 120,
+      "bookedSeats": []
+    },
+    {
+      "id": "8",
+      "name": "Valley Express",
+      "from": "Asyut",
+      "to": "Cairo",
+      "departureTime": "14:30",
+      "arrivalTime": "20:00",
+      "price": 280,
+      "seatsAvailable": 65,
+      "bookedSeats": [],
+      "img": "https://egyptunitedtours.com/wp-content/uploads/2021/02/Watania-Sleeping-Train-1.jpg"
+    },
+    {
+      "id": "cf90",
+      "name": "train",
+      "from": "zagazig",
+      "to": "cairo",
+      "departureTime": "03:35",
+      "arrivalTime": "04:35",
+      "price": 15,
+      "img": "https://www.efinance.com.eg/wp-content/uploads/2022/01/Transporation.jpg",
+      "seatsAvailable": 100,
+      "bookedSeats": []
+    }
+  ],
+  "tickets": []
+}

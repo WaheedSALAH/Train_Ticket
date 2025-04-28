@@ -143,7 +143,6 @@
 //   );
 // }
 
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Form, Container, Row, Alert, FormText } from "react-bootstrap";
@@ -191,8 +190,10 @@ export function Login() {
       const user = users.find((u) => u.email === formData.email && u.password === formData.password);
 
       if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
-        alert("Login successful");
+        // تخزين فقط البيانات الآمنة
+        const { password, ...userWithoutPassword } = user;  // إزالة كلمة المرور قبل التخزين
+        localStorage.setItem("user", JSON.stringify(userWithoutPassword));
+        // alert("Login successful");
 
         navigate(user.role === "admin" ? "/admin" : "/");
       } else {
@@ -275,7 +276,7 @@ export function Login() {
 
             <div className="text-center mt-4">
               <FormText>
-                Dont have an account? <Link className="text-danger" to="/register">Register</Link>
+                Don't have an account? <Link className="text-danger" to="/register">Register</Link>
               </FormText>
             </div>
           </Form>

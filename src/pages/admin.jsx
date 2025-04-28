@@ -22,7 +22,7 @@ export function AdminPanel() {
 
   const fetchTrains = () => {
     axios
-      .get("https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains")
+      .get("http://localhost:3005/trains")
       .then((response) => setTrains(response.data))
       .catch((error) => console.error("Error fetching trains:", error));
   };
@@ -30,7 +30,7 @@ export function AdminPanel() {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this train?")) {
       axios
-        .delete(`https://084006fe-6ca9-4e8a-ad36-e9114730c2c1-00-385jtlgaq1lot.janeway.replit.dev/trains/${id}`)
+        .delete(`http://localhost:3005/trains/${id}`)
         .then(() => {
           alert("Train deleted successfully!");
           fetchTrains();
