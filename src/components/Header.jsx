@@ -9,16 +9,17 @@ export function Header() {
         <Navbar expand="lg" bg="dark" variant="dark" className="shadow-lg">
             <Container>
                 <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center">
-                    <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQUmUDn9WZD5uXSW9FNekZ4iigNP7PQaFAvA&s"
-                        alt="Logo"
-                        style={{ width: "80px", height: "50px", objectFit: "cover" }}
-                        className="rounded me-2"
-                    />
-                    <span className="text-warning fw-bold fs-3 shadow-sm">
-                        Train Ticket
-                    </span>
-                </Navbar.Brand>
+  <img
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQUmUDn9WZD5uXSW9FNekZ4iigNP7PQaFAvA&s"
+    alt="Logo"
+    style={{ width: "80px", height: "50px", objectFit: "cover" }}
+    className="rounded me-2"
+  />
+  <span className="text-warning fw-bold fs-3 shadow-sm">
+    Train Ticket
+  </span>
+</Navbar.Brand>
+
 
                 <Navbar.Toggle aria-controls="navbar-nav" />
 
