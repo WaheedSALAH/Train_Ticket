@@ -15,9 +15,15 @@ export function Header() {
                         style={{ width: "80px", height: "50px", objectFit: "cover" }}
                         className="rounded me-2"
                     />
-                    <span className="text-warning fw-bold fs-3 shadow-sm">
+                    <NavLink
+                            to="/"
+                        <span className="text-warning fw-bold fs-3 shadow-sm">
                         Train Ticket
                     </span>
+                        >
+                            
+                        </NavLink>
+                
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="navbar-nav" />
